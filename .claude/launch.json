@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "stasyszakas-maketas", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "8472"], "port": 8472 }
+  ]
+}

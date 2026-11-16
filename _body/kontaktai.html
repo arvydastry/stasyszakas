@@ -1,0 +1,22 @@
+<!--meta {"title": "Kontaktai | Stasys Zakas", "description": "Parašykite Stasiui Zakui dėl paveikslo įsigijimo ar parodos.", "nav": "kontaktai", "body_class": "page-kontaktai"} -->
+<section class="row page-head">
+  <h1 class="split-heading" data-split>Susisiekime</h1>
+</section>
+<section class="row contact" data-salient="Row 1/3 + 2/3: Text + Contact Form 7 / Fluent Forms">
+  <div class="contact__info">
+    <p class="rtext-lg">{{site.contacts.note}}</p>
+    <h6 class="label">Kur rasti</h6>
+    <p><a class="link-underline" href="{{site.contacts.facebook}}" target="_blank" rel="noopener">{{site.contacts.facebook_label}}</a></p>
+    <p>{{site.contacts.city}}</p>
+  </div>
+  <form class="form" novalidate>
+    <div class="form__work" hidden><img alt=""><p><span class="label">Dominantis darbas</span><b></b></p></div>
+    <div class="field"><label for="f-vardas">Vardas</label><input id="f-vardas" name="vardas" type="text" autocomplete="name" required><p class="field__err">Įrašykite vardą.</p></div>
+    <div class="field"><label for="f-pastas">El. paštas</label><input id="f-pastas" name="pastas" type="email" autocomplete="email" required><p class="field__err">Įrašykite teisingą el. pašto adresą.</p></div>
+    <div class="field"><label for="f-tema">Tema</label><select id="f-tema" name="tema"><option>Noriu įsigyti paveikslą</option><option>Kviečiu surengti parodą</option><option>Kitas klausimas</option></select></div>
+    <div class="field"><label for="f-zinute">Žinutė</label><textarea id="f-zinute" name="zinute" rows="5" required></textarea><p class="field__err">Parašykite žinutę.</p></div>
+    <label class="check"><input type="checkbox" required> <span>Sutinku, kad mano duomenys būtų naudojami atsakymui į šią užklausą.</span></label>
+    <button class="btn-pill" type="submit">Siųsti</button>
+    <p class="form__ok" role="status" hidden>Ačiū. Demo versijoje žinutė niekur nesiunčiama, bet tikroje svetainėje ji pasiektų autorių.</p>
+  </form>
+</section>

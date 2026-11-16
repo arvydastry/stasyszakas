@@ -1,0 +1,28 @@
+<!--meta {"title": "{{w.title_display}} | Stasys Zakas", "description": "{{w.desc}}", "nav": "kuryba", "body_class": "page-darbas", "og_image": "assets/img/works/{{w.slug}}-1600.jpg"} -->
+<section class="row page-head" data-salient="Row + Split Line Heading + Project Categories">
+  <h1 class="split-heading split-heading--md" data-split>{{w.title_display}}</h1>
+  <div class="meta-row">
+    <!--if w.technique_display--><div class="meta-col"><h6 class="label">Technika</h6><p>{{w.technique_display}}</p></div><!--/if-->
+    <!--if w.size--><div class="meta-col"><h6 class="label">Dydis</h6><p>{{w.size}}</p></div><!--/if-->
+    <div class="meta-col"><h6 class="label">Paskelbta</h6><p>{{w.year}}</p></div>
+    <div class="meta-col meta-col--end"><span class="pill">{{w.category_label}}</span><!--if w.sale_label--> <span class="pill">{{w.sale_label}}</span><!--/if--></div>
+  </div>
+</section>
+<section class="artwork" data-salient="Image With Animation: lightbox">
+  <button class="artwork__btn" type="button" data-lightbox="{{w.img1600}}" aria-label="Padidinti paveikslą"><img src="{{w.img1600}}" srcset="{{w.srcset}}" sizes="94vw" alt="{{w.alt}}" style="aspect-ratio:{{w.ratio}};max-width:min(100%,{{w.max_w}}px)"></button>
+</section>
+<section class="row twocol" data-salient="Inner Row 1/3 + 2/3: Text (h6) + Responsive Text + CTA">
+  <h6 class="label">Apie darbą</h6>
+  <div class="rtext-lg" data-reveal><p>{{w.desc}}</p><p><a class="link-underline" href="{{w.inquiry_url}}">Teirautis dėl šio paveikslo</a></p></div>
+</section>
+<!--if w.has_poem-->
+<section class="row twocol" data-salient="Inner Row 1/3 + 2/3: Text (h6) + Responsive Text (h2 style)">
+  <h6 class="label">Eilės</h6>
+  <div data-reveal><!--if w.poem_title_display--><h2 class="poem-title">{{w.poem_title_display}}</h2><!--/if--><div class="poem">{{w.poem_html}}</div><p class="sign">Stasys Zakas</p></div>
+</section>
+<!--/if-->
+<section class="row related" data-salient="Global Section: Related Projects (Post Loop Builder grid, 3 columns)">
+  <h2 class="h-lg">Kiti darbai</h2>
+  <div class="grid-works grid-works--3">{{block:related}}</div>
+  <p><a class="link-underline" href="{{root}}kuryba.html">Visa kūryba</a></p>
+</section>

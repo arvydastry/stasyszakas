@@ -1,0 +1,11 @@
+{
+ "exclude": [295, 166],
+ "hero": 3,
+ "featured": [19, 444, 142, 205, 156],
+ "poems": [386, 482, 462, 417, 378, 299, 184, 242],
+ "covers": {"peizazas": 3, "jura": 26, "miestas": 189, "geles": 129, "portretas": 113},
+ "first": [26, 189, 3, 129, 80, 113, 174, 38, 246, 378, 239, 173],
+ "overrides": {
+  "246": {"title": "Triumfo arka. Paryžius"}
+ }
+}

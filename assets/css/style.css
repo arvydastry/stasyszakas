@@ -1,0 +1,273 @@
+/* Stasys Zakas: demo maketas pagal Salient „Portfolio Layered“.
+   Reikšmės (šriftai, dydžiai, tarpai, kampai) atitinka demo Theme Options ir elementų nustatymus. */
+@font-face{font-family:"Gloock";src:url("../fonts/gloock.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"DM Sans";src:url("../fonts/dmsans.woff2") format("woff2");font-weight:100 1000;font-display:swap}
+@font-face{font-family:"DM Sans";src:url("../fonts/dmsans-italic.woff2") format("woff2");font-weight:100 1000;font-style:italic;font-display:swap}
+@view-transition{navigation:auto}
+
+:root{
+  --bg:#000;--surface:#141414;--surface-2:#1c1c1c;--line:rgba(255,255,255,.22);
+  --text:#fff;--muted:rgba(255,255,255,.64);--accent:#F4C430;--accent-ink:#000;
+  --pad:40px;--ease:cubic-bezier(.65,0,.25,1);--out:cubic-bezier(.215,.61,.355,1);
+  --serif:"Gloock",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/31px var(--sans);letter-spacing:-.02em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,h4,h6,p,ul,figure{margin:0}
+ul{padding:0;list-style:none}
+::selection{background:var(--accent);color:#000}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:#000;padding:8px 14px;z-index:100}
+.skip:focus{left:8px;top:8px}
+
+/* ---------- maketo juosta (tik demo) */
+.mockbar{display:flex;justify-content:space-between;gap:16px;align-items:center;height:36px;padding:0 var(--pad);background:#111;color:var(--muted);font-size:12.5px;line-height:1;letter-spacing:0;position:relative;z-index:30}
+.mockbar b{color:#fff;font-weight:600}
+.mockbar nav{display:flex;gap:16px}
+.mockbar a{text-decoration:none}
+.mockbar a:hover{color:#fff}
+
+/* ---------- antraštė */
+.site-header{position:fixed;top:36px;left:0;right:0;height:80px;padding:0 var(--pad);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;z-index:20;transition:transform .45s var(--out);background:linear-gradient(180deg,rgba(0,0,0,.45),transparent)}
+.site-header.is-hidden{transform:translateY(-140%)}
+.site-header.is-stuck{top:0}
+.logo{font:400 20px/1 var(--serif);letter-spacing:.01em;text-decoration:none;justify-self:start}
+.nav{display:flex}
+.nav__link{font-weight:500;font-size:16px;padding:0 25px;text-decoration:none;opacity:.78;transition:opacity .2s}
+.nav__link:hover,.nav__link.is-active{opacity:1}
+.site-header>.btn-pill{justify-self:end}
+.burger{display:none;width:44px;height:44px;background:none;border:0;padding:10px;cursor:pointer}
+.burger span{display:block;height:2px;background:#fff;margin:6px 0;transition:transform .3s}
+.burger[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
+.burger[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+
+/* ---------- mygtukai, žymos, nuorodos */
+.btn-pill{display:inline-flex;align-items:center;justify-content:center;height:45px;padding:0 24px;border-radius:200px;background:var(--accent);color:var(--accent-ink);font:500 16px/1 var(--sans);letter-spacing:-.02em;text-decoration:none;border:0;cursor:pointer;white-space:nowrap;transition:transform .3s var(--out)}
+.btn-pill:hover{transform:scale(1.06)}
+.btn-pill:active{transform:scale(.98)}
+.btn-pill--ghost{background:none;color:#fff;border:1px solid var(--line)}
+.pill{display:inline-block;border:1px solid rgba(255,255,255,.55);border-radius:200px;padding:5px 11px;font-size:14px;line-height:1;letter-spacing:.1em;text-transform:uppercase}
+.label{font:400 14px/18px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.link-underline{display:inline-block;text-decoration:none;font-size:17px;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:2px;transition:background-size .4s var(--ease)}
+.link-underline:hover{background-size:0 1px;background-position:100% 100%}
+
+/* ---------- tipografija */
+.split-heading{font:400 clamp(44px,6vw,108px)/1 var(--serif);letter-spacing:0}
+.split-heading--md{font-size:clamp(36px,5vw,96px);line-height:1.12;max-width:16em}
+.h-lg{font:400 clamp(30px,3.5vw,60px)/1.2 var(--serif)}
+.rtext-lg{font-size:clamp(18px,1.5vw,25px);line-height:1.6;max-width:38em}
+.rtext-lg p+p{margin-top:1em}
+.poem{font:400 clamp(20px,2.1vw,34px)/1.4 var(--serif)}
+.poem p+p{margin-top:1em}
+.poem--xl{font-size:clamp(24px,2.9vw,48px);line-height:1.3}
+.poem-title{font:400 35px/45px var(--serif);margin-bottom:.6em}
+.sign{color:var(--muted);margin-top:1.4em}
+.sign+p{margin-top:1em}
+
+/* ---------- eilutės */
+.row{padding:6% var(--pad)}
+.page-head{padding-top:calc(116px + 6%);padding-bottom:3%}
+.page-head .rtext-lg{margin-top:1.2em;color:var(--muted)}
+.twocol{display:grid;grid-template-columns:1fr 2fr;gap:24px}
+.twocol>.label{padding-top:.5em}
+.meta-row{display:flex;gap:48px;align-items:flex-end;margin-top:3.5%;flex-wrap:wrap}
+.meta-col{min-width:150px}
+.meta-col .label{margin-bottom:6px;color:var(--muted)}
+.meta-col--end{margin-left:auto;min-width:0;display:flex;gap:8px}
+
+/* ---------- hero */
+.hero{position:relative;height:calc(100vh - 36px);height:calc(100dvh - 36px);min-height:560px;overflow:hidden;background:#262626}
+.hero__bg{position:absolute;inset:-6% 0 -6% 0}
+.hero__bg img{width:100%;height:100%;object-fit:cover;animation:zoomout 2.4s var(--out) both}
+@keyframes zoomout{from{transform:scale(1.14)}to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000 0%,rgba(0,0,0,0) 48%),linear-gradient(180deg,rgba(0,0,0,.35),transparent 30%)}
+.hero__content{position:absolute;left:var(--pad);right:var(--pad);bottom:40px;z-index:1;display:grid;grid-template-columns:1fr minmax(0,375px) 60px;gap:6%;align-items:end}
+.hero__intro{font-size:clamp(16px,1.3vw,22px);line-height:1.6}
+.hero__cap{display:inline-block;margin-top:10px;font-size:14px;color:var(--muted)}
+.cta-arrow{justify-self:end;line-height:0}
+.cta-arrow svg{transition:transform .4s var(--out)}
+.cta-arrow:hover svg{transform:translateY(6px)}
+
+/* ---------- sluoksniuotos kortelės */
+.stack{padding:80px var(--pad) 0}
+.stack__item{position:sticky;top:40px;height:80vh;min-height:420px;margin-bottom:40px}
+.stack__card{position:relative;display:flex;align-items:center;justify-content:center;height:100%;border-radius:25px;overflow:hidden;background:var(--surface);text-decoration:none;transform-origin:50% 50%;will-change:transform,filter}
+.stack__card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stack__card::after{content:"";position:absolute;inset:0;background:var(--surface);opacity:.3}
+.stack__meta{position:absolute;top:35px;left:35px;right:35px;display:flex;justify-content:space-between;align-items:center;z-index:1;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+.stack__title{position:relative;z-index:1;font:400 clamp(48px,12vw,220px)/1.05 var(--serif);text-align:center;max-width:90%;text-shadow:0 2px 40px rgba(0,0,0,.35)}
+.stack__title.is-long{font-size:clamp(40px,8.5vw,160px)}
+.stack__title.is-xlong{font-size:clamp(34px,6.4vw,120px)}
+.after-stack{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;padding-top:3%}
+.view-indicator{position:fixed;left:0;top:0;z-index:40;padding:9px 16px;border-radius:200px;background:rgba(0,0,0,.23);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font:500 14px/1 var(--sans);pointer-events:none;opacity:0;transition:opacity .2s}
+.view-indicator.is-on{opacity:1}
+
+/* ---------- sąrašas */
+.hlist{margin-top:4%}
+.hlist__row{position:relative;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;align-items:center;padding:22px 0}
+.hlist__row--2{grid-template-columns:1fr 3fr}
+.hlist__row::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:#fff;transform-origin:0 50%;transition:transform 1.1s var(--ease)}
+.js .hlist__row[data-reveal]:not(.is-in)::after{transform:scaleX(0)}
+.hlist__row h3{font:600 25px/35px var(--sans);letter-spacing:-.01em}
+.hlist__row h4{font:600 18px/1.4 var(--sans)}
+.hlist__year{text-align:right}
+
+/* ---------- plytelės */
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:3%}
+.tile{position:relative;display:block;grid-column:span 2;aspect-ratio:4/3;border-radius:5px;overflow:hidden;text-decoration:none;background:var(--surface)}
+.tile:nth-child(1),.tile:nth-child(2){grid-column:span 3;aspect-ratio:16/9}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--out)}
+.tile:hover img{transform:scale(1.05)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75),transparent 55%)}
+.tile__text{position:absolute;left:24px;bottom:20px;z-index:1;display:flex;flex-direction:column}
+.tile__text b{font:400 clamp(24px,2.4vw,40px)/1.2 var(--serif)}
+.tile__text span{font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+
+/* ---------- apie */
+.about-teaser{display:grid;grid-template-columns:1fr 2fr;gap:6%;align-items:start}
+.about-teaser__img img{width:100%;max-width:440px;border-radius:5px;filter:grayscale(1) contrast(1.05)}
+figcaption{font-size:14px;line-height:1.5;color:var(--muted);margin-top:8px}
+figcaption span{opacity:.8}
+.gallery-3{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-top:0}
+.gallery-3 figure:first-child{grid-column:1/-1}
+.gallery-3 img{width:100%;border-radius:5px;aspect-ratio:3/2;object-fit:cover}
+.gallery-3 figure:first-child img{aspect-ratio:16/8}
+
+/* ---------- galerija */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filter{background:none;color:#fff;border:1px solid var(--line);border-radius:200px;padding:9px 16px;font:400 14px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s}
+.filter sup{font-size:10px;opacity:.7}
+.filter:hover{border-color:#fff}
+.filter.is-active{background:var(--accent);border-color:var(--accent);color:#000}
+.gallery{padding-top:2%}
+.gallery__count{color:var(--muted);font-size:14px;margin:14px 0 24px}
+.grid-works{columns:3;column-gap:10px}
+.grid-works--3{columns:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:end;margin:3% 0}
+.card{display:block;break-inside:avoid;margin-bottom:34px;text-decoration:none}
+.grid-works--3 .card{margin:0}
+.card[hidden]{display:none}
+.card__img{display:block;overflow:hidden;border-radius:5px;background:var(--surface)}
+.card__img img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--out)}
+.card:hover .card__img img{transform:scale(1.05)}
+.card__title{display:block;margin-top:14px;font:600 20px/1.35 var(--sans);letter-spacing:-.01em}
+.card__title span{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .45s var(--ease)}
+.card:hover .card__title span{background-size:100% 1px}
+.card__meta{display:block;font-size:13px;line-height:1.5;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.btn-more{display:flex;margin:24px auto 0}
+.btn-more[hidden]{display:none}
+
+/* ---------- darbo puslapis */
+.artwork{padding:0 var(--pad);display:flex;justify-content:center}
+.artwork__btn{background:none;border:0;padding:0;cursor:zoom-in;max-width:100%}
+.artwork__btn img{max-height:88vh;width:auto;border-radius:5px;object-fit:contain}
+.lightbox{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;overflow:auto;cursor:zoom-out}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:96vw;max-height:96vh}
+.lightbox.is-zoom{align-items:flex-start;justify-content:flex-start}
+.lightbox.is-zoom img{max-width:none;max-height:none}
+.lightbox__close{position:fixed;top:16px;right:16px;background:rgba(0,0,0,.5);color:#fff;border:1px solid var(--line);border-radius:200px;padding:10px 16px;font:500 14px/1 var(--sans);cursor:pointer}
+
+/* ---------- eilės */
+.poem-pair{display:grid;grid-template-columns:1fr 1fr;gap:6%;padding:6% 0;border-top:1px solid var(--line)}
+.poem-pair:first-child{border-top:0;padding-top:0}
+.poem-pair__title{font:400 clamp(28px,3vw,52px)/1.15 var(--serif);margin-bottom:.8em}
+.poem-pair__img{position:sticky;top:110px;align-self:start;text-decoration:none}
+.poem-pair__img img{width:100%;border-radius:5px}
+.poem-pair__img span{display:block;margin-top:10px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- kvietimas, kontaktai */
+.cta{display:flex;flex-direction:column;align-items:flex-start;gap:20px;border-top:1px solid var(--line);margin:0 var(--pad);padding-left:0;padding-right:0}
+.cta__text{max-width:34em;color:var(--muted)}
+.contact{display:grid;grid-template-columns:1fr 1.4fr;gap:8%;padding-top:2%}
+.contact__info .label{margin:2.4em 0 .6em;color:var(--muted)}
+.form{display:grid;gap:20px;max-width:640px}
+.field label,.check{font-size:15px}
+.field label{display:block;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:5px;color:#fff;font:400 17px/1.4 var(--sans);padding:13px 14px}
+.field__err{display:none;color:#ff9a8a;font-size:14px;line-height:1.4;margin-top:6px}
+.field.is-bad .field__err{display:block}
+.field.is-bad input,.field.is-bad textarea{border-color:#ff9a8a}
+.check{display:flex;gap:10px;line-height:1.5;color:var(--muted)}
+.check input{accent-color:var(--accent);width:18px;height:18px;margin-top:3px;flex:none}
+.form .btn-pill{justify-self:start}
+.form__ok{background:var(--surface-2);border-radius:5px;padding:16px}
+.form__work{display:flex;gap:14px;align-items:center;background:var(--surface-2);border-radius:5px;padding:10px}
+.form__work[hidden]{display:none}
+.form__work img{width:84px;height:84px;object-fit:cover;border-radius:5px}
+.form__work .label{display:block;color:var(--muted);font-size:12px}
+
+/* ---------- poraštė */
+.site-footer{padding:4% var(--pad) 40px;overflow:hidden}
+.footer-row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--muted);font-size:15px}
+.footer-row nav{display:flex;gap:22px;flex-wrap:wrap}
+.footer-row a{text-decoration:none}
+.footer-row a:hover{color:#fff}
+.footer-giant{display:flex;align-items:center;gap:4vw;font:400 21vw/1 var(--serif);margin-top:2%;white-space:nowrap}
+.footer-giant i{flex:1;height:.035em;background:#fff;min-width:6vw}
+
+/* ---------- judesys (tik su JS) */
+.js [data-reveal]:not(.hlist__row){opacity:0;transform:translateY(24px);transition:opacity 1.3s var(--out),transform 1.3s var(--out)}
+.js [data-reveal].is-in{opacity:1;transform:none}
+.split-heading .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.split-heading .c{display:inline-block}
+.js .split-heading[data-split] .c{transform:translateY(115%);transition:transform 1.1s var(--out)}
+.js .split-heading.is-in .c{transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js [data-reveal],.js .split-heading[data-split] .c{opacity:1!important;transform:none!important}
+  .js .hlist__row::after{transform:none!important}
+  .stack__card{transform:none!important;filter:none!important}
+}
+
+/* ---------- planšetė ir telefonas */
+@media (max-width:999px){
+  :root{--pad:6vw}
+  .mockbar nav{display:none}
+  .site-header{grid-template-columns:auto 1fr auto;gap:8px;height:70px}
+  .burger{display:block;margin-left:-10px}
+  .nav{position:fixed;inset:0;background:#000;flex-direction:column;justify-content:center;gap:10px;padding:0 var(--pad);transform:translateY(-102%);transition:transform .5s var(--ease);z-index:-1}
+  .nav.is-open{transform:none}
+  .nav__link{font:400 44px/1.25 var(--serif);padding:0;opacity:1}
+  .split-heading{font-size:10vw}
+  .split-heading--md{font-size:8vw}
+  .hero__content{grid-template-columns:1fr 44px;gap:18px 12px;bottom:28px}
+  .hero__content h1{grid-column:1/-1}
+  .twocol,.about-teaser,.contact,.poem-pair{grid-template-columns:1fr;gap:20px}
+  .poem-pair__img{position:static;order:-1}
+  .page-head{padding-top:calc(110px + 8%)}
+  .row{padding-top:12%;padding-bottom:12%}
+  .stack{padding-top:40px}
+  .stack__item{height:62vh;top:24px;margin-bottom:24px}
+  .stack__meta{top:20px;left:20px;right:20px;font-size:12px}
+  .stack__date{display:none}
+  .hlist__row{grid-template-columns:1fr auto;gap:2px 16px}
+  .hlist__row h3{font-size:21px;line-height:1.3;grid-column:1}
+  .hlist__row p:not(.hlist__year){grid-column:1;color:var(--muted);line-height:1.5}
+  .hlist__row h4{grid-column:1;font-size:15px}
+  .hlist__year{grid-column:2;grid-row:1}
+  .hlist__row--2{grid-template-columns:1fr}
+  .tiles{grid-template-columns:1fr 1fr}
+  .tile,.tile:nth-child(2){grid-column:span 1;aspect-ratio:1}
+  .tile:nth-child(1){grid-column:1/-1;aspect-ratio:16/10}
+  .grid-works{columns:2}
+  .grid-works--3{grid-template-columns:1fr 1fr}
+  .grid-works--3 .card:nth-child(3){display:none}
+  .card__title{font-size:16px;margin-top:10px}
+  .card__meta{font-size:11px}
+  .card{margin-bottom:24px}
+  .meta-row{gap:20px 32px}
+  .meta-col--end{margin-left:0;width:100%}
+  .about-teaser__img img{max-width:320px}
+  .footer-row{flex-direction:column}
+}
+@media (max-width:560px){
+  .split-heading{font-size:12vw}
+  .split-heading--md{font-size:9.5vw}
+  .site-header>.btn-pill{height:40px;padding:0 16px;font-size:15px}
+  .gallery-3{grid-template-columns:1fr}
+}

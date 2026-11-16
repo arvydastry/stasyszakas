@@ -1,0 +1,28 @@
+<!--meta {"title": "Apie autorių | Stasys Zakas", "description": "Apie Panevėžio tapytoją ir poetą Stasį Zaką: kūryba, parodos, autoriaus žodis.", "nav": "apie", "body_class": "page-apie"} -->
+<section class="row page-head" data-salient="Row + Split Line Heading + meta columns">
+  <h1 class="split-heading split-heading--md" data-split>Rašau poeziją ir tapau, nes tai man patinka.</h1>
+  <div class="meta-row">{{block:list:about.meta:meta-col}}<div class="meta-col meta-col--end"><span class="pill">Apie autorių</span></div></div>
+</section>
+<section class="row about-teaser" data-salient="Row 1/3 + 2/3: Image With Animation + Text">
+  <figure class="about-teaser__img"><img src="{{root}}{{site.about.portrait.src}}" alt="{{site.about.portrait.alt}}"><figcaption>{{site.about.portrait.credit}}</figcaption></figure>
+  <div class="rtext-lg" data-reveal>{{site.about.bio_html}}</div>
+</section>
+<section class="row" data-salient="Horizontal List Item ×N">
+  <ul class="hlist">{{block:list:about.facts:fact-row}}</ul>
+</section>
+<section class="row gallery-3" data-salient="Image With Animation ×3: 1 platus + 2 po pusę">
+{{block:list:about.photos:photo}}
+</section>
+<section class="row" data-salient="Split Line Heading + Horizontal List Item ×N">
+  <h2 class="split-heading" data-split>Parodos ir<br>renginiai</h2>
+  <ul class="hlist">{{block:exhibitions}}</ul>
+</section>
+<section class="row twocol" data-salient="Inner Row 1/3 + 2/3: Text (h6) + Responsive Text (h2 style)">
+  <h6 class="label">Autoriaus žodis</h6>
+  <div data-reveal><div class="poem">{{site.about.statement_html}}</div><p class="sign">{{site.about.statement_source}}</p></div>
+</section>
+<section class="row cta" data-salient="Row: Responsive Text (h2) + Nectar Button">
+  <h2 class="h-lg" data-reveal>{{site.cta.title}}</h2>
+  <p class="cta__text" data-reveal>{{site.cta.text}}</p>
+  <a class="btn-pill" href="{{root}}kontaktai.html">Susisiekti</a>
+</section>

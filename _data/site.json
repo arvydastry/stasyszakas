@@ -1,0 +1,57 @@
+{
+ "artist": {
+  "name": "Stasys Zakas",
+  "role": "Tapytojas ir poetas",
+  "city": "Panevėžys",
+  "motto": "Rašau poeziją ir tapau, nes tai man patinka."
+ },
+ "hero": {
+  "work": "ryto-gaivumas",
+  "work_title": "Ryto gaivumas",
+  "intro": "Tapytojas ir poetas iš Panevėžio. Peizažai, jūra, miestai ir eilės, parašytos šalia paveikslų."
+ },
+ "statement": {
+  "label": "Autoriaus žodis",
+  "poem_html": "<p>Per gyvenimą greitai nueisiu.<br>Pėdos, nors neryškios, pasiliks.<br>Rasite eiles, paveikslus,<br>Pasiimkite, jeigu patiks...</p>",
+  "source": "Iš eilėraščio „Rašau...“",
+  "work": "sodyba-po-debesimis"
+ },
+ "about": {
+  "short": "Stasys Zakas gyvena ir kuria Panevėžyje. Tapo aliejumi, akrilu, akvarele ir pastele, o prie paveikslų dažnai prirašo eilėraštį. Jo drobėse daugiausia Lietuvos peizažai, jūra ir laivai, kelionių miestai, gėlės.",
+  "bio_html": "<p>Stasys Zakas gyvena ir kuria Panevėžyje. Apie save jis sako paprastai: „Rašau poeziją ir tapau, nes tai man patinka.“</p><p>Tapo aliejumi ir akrilu ant drobės bei kartono, akvarele, pastele. Paveiksluose grįžta prie tų pačių vietų ir nuotaikų: Lėvens ir Nevėžio senvagės krantai, rudens beržynai, žiemos kiemai, Kuršių marios ir Baltijos pakrantė. Šalia jų yra kelionių miestai ir uostai: Paryžius, Londonas, Venecija, Neapolis, Norvegijos fiordai.</p><p>Daugelį darbų autorius palydi eilėmis. Eilėraštis ir paveikslas jam yra tas pats pasakojimas, tik kitomis priemonėmis.</p>",
+  "statement_html": "<p>Sustabdžiau teptuku akvarelės,<br>Jūros muziką, saulę virš jų...<br>Mano mintys ją tokią prikėlė,<br>Iš seniai sustabdytų spalvų.</p><p>Jei didesnis kontrastas,- atleiskit,<br>Tom oranžinėm mano spalvom.<br>Tiktai vasaros dar man įpilkit<br>Į akis su putotom bangom...</p>",
+  "statement_source": "Iš eilėraščio prie akvarelės „Saulėlydis“",
+  "meta": [
+   {"label": "Gyvena", "value": "Panevėžyje"},
+   {"label": "Kuria", "value": "Tapybą ir eiles"}
+  ],
+  "facts": [
+   {"label": "Technikos", "value": "Aliejus, akrilas, akvarelė, pastelė"},
+   {"label": "Temos", "value": "Peizažai, jūra ir laivai, miestai, gėlės, portretai"},
+   {"label": "Kelionių motyvai", "value": "Paryžius, Londonas, Venecija, Neapolis, Norvegija"},
+   {"label": "Lietuvos vietos", "value": "Lėvuo, Nevėžio senvagė, Kuršių marios, Smiltynė"}
+  ],
+  "photos": [
+   {"src": "assets/img/parodos/raseiniai-1.jpg", "alt": "Paveikslų paroda Raseinių Marcelijaus Martinaičio viešosios bibliotekos galerijoje.", "caption": "Paroda Raseinių viešosios bibliotekos paveikslų galerijoje.", "credit": "Nuotr. Prano Laurinavičiaus"},
+   {"src": "assets/img/artist/prie-molberto.jpg", "alt": "Stasys Zakas prie molberto su ką tik nutapytu paveikslu.", "caption": "Prie molberto.", "credit": ""},
+   {"src": "assets/img/artist/paveikslai-namuose.jpg", "alt": "Aliejiniai paveikslai ant sienos.", "caption": "Aliejaus darbai: Venecija, Krymas, Paryžius.", "credit": ""}
+  ],
+  "portrait": {"src": "assets/img/artist/portretas.jpg", "alt": "Stasys Zakas, portretas.", "credit": "Nuotr. Almutės Juzėnienės"}
+ },
+ "exhibitions": [
+  {"title": "Tapybos darbų paroda", "venue": "Raseinių Marcelijaus Martinaičio viešoji biblioteka, paveikslų galerija", "type": "Personalinė paroda", "year": "2025"},
+  {"title": "„Menų magija“", "venue": "Šilaičių menų festivalis", "type": "Festivalis", "year": "2026"},
+  {"title": "„Vilties paukštė“", "venue": "Tautos kankinių bažnyčia, Berčiūnai, Panevėžio r.", "type": "Sakralinės poezijos skaitymai", "year": ""}
+ ],
+ "contacts": {
+  "facebook": "https://www.facebook.com/stasys599",
+  "facebook_label": "Facebook: Stasys Zakas",
+  "city": "Panevėžys",
+  "note": "Paveikslus galima įsigyti tiesiai iš autoriaus. Parašykite, kuris darbas jus domina, ir autorius atsakys asmeniškai."
+ },
+ "cta": {
+  "title": "Domina paveikslas? Parašykite.",
+  "text": "Daugelį darbų galima įsigyti. Autorius taip pat mielai rengia parodas bibliotekose, kultūros centruose ir galerijose.",
+  "button": "Susisiekti"
+ }
+}
