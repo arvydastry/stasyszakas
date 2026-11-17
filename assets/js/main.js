@@ -83,7 +83,6 @@
     ticking = false;
     var y = window.scrollY;
     if (header) {
-      header.classList.toggle('is-stuck', y > 36);
       header.classList.toggle('is-hidden', y > lastY && y > 300 && !$('.nav.is-open'));
     }
     lastY = y;

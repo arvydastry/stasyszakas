@@ -8,7 +8,7 @@ Naudojimas:
 Reikia tik python3 (standartinė biblioteka).
 
 ŠALTINIAI
-    _parts/head.html, mockbar.html, header.html, footer.html, scripts.html   bendros dalys
+    _parts/head.html, header.html, footer.html, scripts.html   bendros dalys
     _body/<vardas>.html      puslapio turinys; PIRMA eilutė yra meta komentaras su JSON:
                              <!--meta {"title": "...", "description": "...", "nav": "kuryba",
                                        "css": ["p-kuryba.css"], "js": ["p-kuryba.js"], "body_class": "page-kuryba",
@@ -305,7 +305,7 @@ class Site:
         }
         nav = meta.get("nav", "")
         page = "".join([
-            read(PARTS / "head.html"), read(PARTS / "mockbar.html"), read(PARTS / "header.html"),
+            read(PARTS / "head.html"), read(PARTS / "header.html"),
             '<main id="turinys">\n', body, "\n</main>\n",
             read(PARTS / "footer.html"), read(PARTS / "scripts.html"),
         ])
