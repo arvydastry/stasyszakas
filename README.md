@@ -9,7 +9,7 @@ Tai ne galutinė svetainė. Jei patiks, ji būtų kuriama WordPress + Salient 18
 python3 -m http.server 8472
 ```
 
-Atidaryti http://localhost:8472/ (tas pats nustatyta `.claude/launch.json`). Viršuje tamsi „Demo maketas“ juosta su nuorodomis į visus puslapius (į WordPress neperkeliama).
+Atidaryti http://localhost:8472/ (tas pats nustatyta `.claude/launch.json`). 
 Po pakeitimų `_body/`, `_parts/`, `_templates/` ar `_data/` perrinkti: `python3 build.py` (turi rodyti 0 įspėjimų).
 
 ## Puslapiai
