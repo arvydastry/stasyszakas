@@ -1,1 +1,9 @@
-<li class="hlist__row" data-reveal="line"><h3>{{e.title}}</h3><p>{{e.venue}}</p><h4>{{e.type}}</h4><p class="hlist__year">{{e.year}}</p></li>
+<li class="expo" data-reveal>
+  <div class="expo__year"><!--if e.year-->{{e.year}}<!--/if--><!--unless e.year--><span class="expo__year-txt">Data tikslinama</span><!--/unless--></div>
+  <div class="expo__body">
+    <span class="pill">{{e.type}}</span>
+    <h3 class="expo__title">{{e.title}}</h3>
+    <p class="expo__venue">{{e.venue}}<!--if e.date--><br><span>{{e.date}}</span><!--/if--></p>
+  </div>
+  <!--if e.img--><figure class="expo__img"><img src="{{root}}{{e.img}}" alt="{{e.title}}: {{e.venue}}" loading="lazy"><!--if e.credit--><figcaption>{{e.credit}}</figcaption><!--/if--></figure><!--/if-->
+</li>

@@ -1,11 +1,12 @@
 <!--meta {"title": "Stasys Zakas | Tapyba ir poezija", "description": "Panevėžio tapytojo ir poeto Stasio Zako kūryba: peizažai, jūra ir laivai, miestai, gėlės ir eilės.", "nav": "home", "body_class": "page-home", "og_image": "assets/img/og.jpg"} -->
-<section class="hero" data-salient="Row: full height, bg image zoom-out + parallax, advanced gradient, columns bottom">
-  <div class="hero__bg"><img src="{{root}}assets/img/works/{{site.hero.work}}-1600.jpg" alt="" fetchpriority="high"></div>
+<section class="hero" data-hero data-salient="Nectar Slider: full screen, fade + Ken Burns, autoplay 6s, bullet navigation; caption bottom">
+  <div class="hero__slides">{{block:list:hero.slides:hero-slide}}</div>
   <div class="hero__content">
     <h1 class="split-heading" data-split>Stasys<br>Zakas</h1>
-    <div class="hero__intro" data-reveal data-delay="300"><p>{{site.hero.intro}}</p><a class="hero__cap" href="{{root}}kuryba/{{site.hero.work}}.html">Paveiksle: „{{site.hero.work_title}}“</a></div>
+    <div class="hero__intro" data-reveal data-delay="300"><p>{{site.hero.intro}}</p></div>
     <a class="cta-arrow" href="#darbai" aria-label="Žemyn prie darbų" data-reveal data-delay="500"><svg width="30" height="70" viewBox="0 0 30 70" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 0v68M3 56l12 12 12-12"/></svg></a>
   </div>
+  <div class="hero__nav" role="group" aria-label="Paveikslai">{{block:list:hero.slides:hero-dot}}</div>
 </section>
 
 <section class="stack" id="darbai" data-salient="Post Loop Builder: Portfolio, Stack, Blurred Scale, 80vh, content overlaid">
@@ -33,11 +34,6 @@
 
 <section class="row" id="parodos" data-salient="Split Line Heading + Horizontal List Item ×N, border animation">
   <h2 class="split-heading" data-split>Parodos ir<br>renginiai</h2>
-  <ul class="hlist">{{block:exhibitions}}</ul>
+  <ol class="expos">{{block:exhibitions}}</ol>
 </section>
 
-<section class="row cta" data-salient="Row: Responsive Text (h2) + Nectar Button">
-  <h2 class="h-lg" data-reveal>{{site.cta.title}}</h2>
-  <p class="cta__text" data-reveal>{{site.cta.text}}</p>
-  <a class="btn-pill" href="{{root}}kontaktai.html">Susisiekti</a>
-</section>

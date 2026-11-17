@@ -43,6 +43,33 @@
     targets.forEach(function (t) { io.observe(t); });
   } else targets.forEach(function (t) { t.classList.add('is-in'); });
 
+  /* Hero slaideris (Nectar Slider: fade + Ken Burns, autoplay) */
+  var hero = $('[data-hero]');
+  if (hero) {
+    var slides = $$('.hero__slide', hero), dots = $$('.hero__dot', hero), cur = 0, timer = null, DUR = 6000;
+    hero.style.setProperty('--dur', DUR / 1000 + 's');
+    var restart = function () { clearTimeout(timer); if (!reduce && !hero.hasAttribute('data-paused')) timer = setTimeout(function () { go(cur + 1); }, DUR); };
+    var go = function (n) {
+      n = (n + slides.length) % slides.length;
+      if (n === cur) return;
+      var old = cur;
+      slides[old].classList.remove('is-active'); slides[old].classList.add('is-leaving');
+      setTimeout(function () { slides[old].classList.remove('is-leaving'); }, 1700);
+      cur = n;
+      $('img', slides[cur]).loading = 'eager';
+      slides[cur].classList.add('is-active');
+      dots.forEach(function (d, i) { d.classList.toggle('is-active', i === cur); });
+      restart();
+    };
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function (e) { if (e.target.closest('a') && i === cur) return; e.preventDefault(); go(i); });
+    });
+    hero.addEventListener('mouseenter', function () { hero.setAttribute('data-paused', ''); clearTimeout(timer); });
+    hero.addEventListener('mouseleave', function () { hero.removeAttribute('data-paused'); restart(); });
+    document.addEventListener('visibilitychange', function () { if (document.hidden) clearTimeout(timer); else restart(); });
+    dots[0].classList.add('is-active'); restart();
+  }
+
   /* Ilgi pavadinimai sluoksniuotose kortelėse */
   $$('.stack__title').forEach(function (t) {
     var len = t.textContent.trim().length;
@@ -50,7 +77,7 @@
   });
 
   /* Antraštė: slepiasi slenkant žemyn; hero parallax; kortelių „blurred scale“ */
-  var header = $('.site-header'), heroBg = $('.hero__bg'), cards = $$('.stack__item');
+  var header = $('.site-header'), heroBg = $('.hero__slides'), cards = $$('.stack__item');
   var lastY = 0, ticking = false;
   function frame() {
     ticking = false;

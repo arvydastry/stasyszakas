@@ -78,18 +78,32 @@ ul{padding:0;list-style:none}
 .meta-col .label{margin-bottom:6px;color:var(--muted)}
 .meta-col--end{margin-left:auto;min-width:0;display:flex;gap:8px}
 
-/* ---------- hero */
-.hero{position:relative;height:calc(100vh - 36px);height:calc(100dvh - 36px);min-height:560px;overflow:hidden;background:#262626}
-.hero__bg{position:absolute;inset:-6% 0 -6% 0}
-.hero__bg img{width:100%;height:100%;object-fit:cover;animation:zoomout 2.4s var(--out) both}
-@keyframes zoomout{from{transform:scale(1.14)}to{transform:scale(1)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000 0%,rgba(0,0,0,0) 48%),linear-gradient(180deg,rgba(0,0,0,.35),transparent 30%)}
-.hero__content{position:absolute;left:var(--pad);right:var(--pad);bottom:40px;z-index:1;display:grid;grid-template-columns:1fr minmax(0,375px) 60px;gap:6%;align-items:end}
+/* ---------- hero: Nectar Slider (fade + Ken Burns) */
+.hero{position:relative;height:calc(100vh - 36px);height:calc(100dvh - 36px);min-height:600px;overflow:hidden;background:#111}
+.hero__slides,.hero__slide{position:absolute;inset:0;margin:0}
+.hero__slide{opacity:0;clip-path:inset(0 0 0 100%);transition:opacity 1.2s var(--out),clip-path 1.6s var(--ease)}
+.hero__slide.is-active{opacity:1;clip-path:inset(0);z-index:1}
+.hero__slide.is-leaving{opacity:1;z-index:0}
+.hero__slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.16);transition:transform 7.5s linear}
+.hero__slide.is-active img,.hero__slide.is-leaving img{transform:scale(1.02)}
+.hero::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(0deg,#000 0%,rgba(0,0,0,.25) 40%,rgba(0,0,0,0) 60%),linear-gradient(180deg,rgba(0,0,0,.4),transparent 28%);pointer-events:none}
+.hero__content{position:absolute;left:var(--pad);right:var(--pad);bottom:150px;z-index:3;display:grid;grid-template-columns:1fr minmax(0,375px) 60px;gap:6%;align-items:end}
 .hero__intro{font-size:clamp(16px,1.3vw,22px);line-height:1.6}
-.hero__cap{display:inline-block;margin-top:10px;font-size:14px;color:var(--muted)}
 .cta-arrow{justify-self:end;line-height:0}
 .cta-arrow svg{transition:transform .4s var(--out)}
 .cta-arrow:hover svg{transform:translateY(6px)}
+.hero__nav{position:absolute;left:var(--pad);right:var(--pad);bottom:36px;z-index:3;display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.hero__dot{background:none;border:0;padding:0;color:#fff;text-align:left;cursor:pointer;font:inherit;opacity:.55;transition:opacity .3s}
+.hero__dot:hover,.hero__dot.is-active{opacity:1}
+.hero__dot-num{font-size:12px;letter-spacing:.1em}
+.hero__dot-bar{display:block;height:1px;background:rgba(255,255,255,.3);margin:8px 0 10px;overflow:hidden}
+.hero__dot-bar i{display:block;height:100%;background:var(--accent);transform:scaleX(0);transform-origin:0 50%}
+.hero__dot.is-active .hero__dot-bar i{animation:bar var(--dur,6s) linear forwards}
+.hero[data-paused] .hero__dot.is-active .hero__dot-bar i{animation-play-state:paused}
+@keyframes bar{to{transform:scaleX(1)}}
+.hero__dot-title{display:block;font-size:14px;line-height:1.35}
+.hero__dot-title a{text-decoration:none}
+.hero__dot-title small{display:block;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
 
 /* ---------- sluoksniuotos kortelės */
 .stack{padding:80px var(--pad) 0}
@@ -199,14 +213,37 @@ figcaption span{opacity:.8}
 .form__work img{width:84px;height:84px;object-fit:cover;border-radius:5px}
 .form__work .label{display:block;color:var(--muted);font-size:12px}
 
+/* ---------- parodos (kortelės su dideliais metais) */
+.expos{list-style:none;padding:0;margin:4% 0 0}
+.expo{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr) minmax(0,.9fr);gap:4%;align-items:center;padding:42px 0;border-top:1px solid var(--line)}
+.expo:last-child{border-bottom:1px solid var(--line)}
+.expo__year{font:400 clamp(56px,8vw,150px)/.95 var(--serif);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.7);transition:color .5s,-webkit-text-stroke-color .5s}
+.expo__year-txt{display:block;font-size:clamp(28px,3vw,52px);line-height:1.1}
+.expo:hover .expo__year{color:var(--accent);-webkit-text-stroke-color:var(--accent)}
+.expo__title{font:400 clamp(26px,2.6vw,46px)/1.15 var(--serif);margin:16px 0 10px}
+.expo__venue{color:var(--muted);line-height:1.55}
+.expo__venue span{color:#fff}
+.expo__img{margin:0;justify-self:end;width:100%;max-width:300px}
+.expo__img img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:5px;filter:grayscale(1);transform:rotate(-2deg) scale(.96);transition:filter .6s,transform .8s var(--out)}
+.expo:hover .expo__img img{filter:none;transform:none}
+
 /* ---------- poraštė */
-.site-footer{padding:4% var(--pad) 40px;overflow:hidden}
-.footer-row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--muted);font-size:15px}
-.footer-row nav{display:flex;gap:22px;flex-wrap:wrap}
-.footer-row a{text-decoration:none}
-.footer-row a:hover{color:#fff}
-.footer-giant{display:flex;align-items:center;gap:4vw;font:400 21vw/1 var(--serif);margin-top:2%;white-space:nowrap}
-.footer-giant i{flex:1;height:.035em;background:#fff;min-width:6vw}
+.site-footer{margin-top:4%;padding:6% var(--pad) 28px;background:#0b0b0b;border-top:1px solid var(--line)}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-end;gap:5%}
+.footer-invite .label{color:var(--muted);margin-bottom:14px}
+.footer-big{display:inline-flex;align-items:center;gap:.25em;font:400 clamp(56px,10vw,190px)/1 var(--serif);text-decoration:none;background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 3px no-repeat;transition:background-size .6s var(--ease),color .4s}
+.footer-big svg{width:.55em;height:.55em;transition:transform .5s var(--out)}
+.footer-big:hover{color:var(--accent);background-size:100% 3px}
+.footer-big:hover svg{transform:translate(.08em,-.08em)}
+.footer-art{width:clamp(120px,14vw,220px);aspect-ratio:1;object-fit:cover;border-radius:50%;transform:rotate(-8deg)}
+.footer-cols{display:grid;grid-template-columns:1fr 1fr 2fr;gap:5%;margin-top:6%;padding-top:32px;border-top:1px solid var(--line)}
+.footer-cols .label{color:var(--muted);margin-bottom:12px}
+.footer-cols a,.footer-cols span{display:block;text-decoration:none;line-height:1.9}
+.footer-cols a:hover{color:var(--accent)}
+.footer-quote p:last-child{font:400 clamp(20px,1.8vw,28px)/1.35 var(--serif)}
+.footer-bottom{display:flex;justify-content:space-between;margin-top:56px;color:var(--muted);font-size:14px}
+.footer-bottom a{text-decoration:none}
+.footer-bottom a:hover{color:#fff}
 
 /* ---------- judesys (tik su JS) */
 .js [data-reveal]:not(.hlist__row){opacity:0;transform:translateY(24px);transition:opacity 1.3s var(--out),transform 1.3s var(--out)}
@@ -222,6 +259,8 @@ figcaption span{opacity:.8}
   .js [data-reveal],.js .split-heading[data-split] .c{opacity:1!important;transform:none!important}
   .js .hlist__row::after{transform:none!important}
   .stack__card{transform:none!important;filter:none!important}
+  .hero__slide{clip-path:none}
+  .hero__slide img{transform:none}
 }
 
 /* ---------- planšetė ir telefonas */
@@ -263,7 +302,15 @@ figcaption span{opacity:.8}
   .meta-row{gap:20px 32px}
   .meta-col--end{margin-left:0;width:100%}
   .about-teaser__img img{max-width:320px}
-  .footer-row{flex-direction:column}
+  .footer-cols{grid-template-columns:1fr 1fr}
+  .footer-quote{grid-column:1/-1;margin-top:24px}
+  .footer-art{display:none}
+  .hero__content{bottom:96px}
+  .hero__nav{gap:8px;bottom:24px}
+  .hero__dot-title{display:none}
+  .expo{grid-template-columns:1fr;gap:14px;padding:32px 0}
+  .expo__img{justify-self:start;max-width:none}
+  .expo__img img{aspect-ratio:16/9}
 }
 @media (max-width:560px){
   .split-heading{font-size:12vw}

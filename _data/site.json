@@ -8,7 +8,35 @@
  "hero": {
   "work": "ryto-gaivumas",
   "work_title": "Ryto gaivumas",
-  "intro": "Tapytojas ir poetas iš Panevėžio. Peizažai, jūra, miestai ir eilės, parašytos šalia paveikslų."
+  "intro": "Tapytojas ir poetas iš Panevėžio. Peizažai, jūra, miestai ir eilės, parašytos šalia paveikslų.",
+  "slides": [
+   {
+    "slug": "ryto-gaivumas",
+    "title": "Ryto gaivumas",
+    "meta": "Peizažas",
+    "first": " is-active"
+   },
+   {
+    "slug": "begant-nuo-audros",
+    "title": "Bėgant nuo audros",
+    "meta": "Akrilas, popierius"
+   },
+   {
+    "slug": "saulelydis-prie-juodosios-juros",
+    "title": "Saulėlydis prie Juodosios jūros",
+    "meta": "Aliejus, drobė"
+   },
+   {
+    "slug": "senoji-anglija",
+    "title": "Senoji Anglija",
+    "meta": "Akvarelė"
+   },
+   {
+    "slug": "po-audros",
+    "title": "Po audros",
+    "meta": "Akvarelė"
+   }
+  ]
  },
  "statement": {
   "label": "Autoriaus žodis",
@@ -22,26 +50,87 @@
   "statement_html": "<p>Sustabdžiau teptuku akvarelės,<br>Jūros muziką, saulę virš jų...<br>Mano mintys ją tokią prikėlė,<br>Iš seniai sustabdytų spalvų.</p><p>Jei didesnis kontrastas,- atleiskit,<br>Tom oranžinėm mano spalvom.<br>Tiktai vasaros dar man įpilkit<br>Į akis su putotom bangom...</p>",
   "statement_source": "Iš eilėraščio prie akvarelės „Saulėlydis“",
   "meta": [
-   {"label": "Gyvena", "value": "Panevėžyje"},
-   {"label": "Kuria", "value": "Tapybą ir eiles"}
+   {
+    "label": "Gyvena",
+    "value": "Panevėžyje"
+   },
+   {
+    "label": "Kuria",
+    "value": "Tapybą ir eiles"
+   }
   ],
   "facts": [
-   {"label": "Technikos", "value": "Aliejus, akrilas, akvarelė, pastelė"},
-   {"label": "Temos", "value": "Peizažai, jūra ir laivai, miestai, gėlės, portretai"},
-   {"label": "Kelionių motyvai", "value": "Paryžius, Londonas, Venecija, Neapolis, Norvegija"},
-   {"label": "Lietuvos vietos", "value": "Lėvuo, Nevėžio senvagė, Kuršių marios, Smiltynė"}
+   {
+    "label": "Technikos",
+    "value": "Aliejus, akrilas, akvarelė, pastelė"
+   },
+   {
+    "label": "Temos",
+    "value": "Peizažai, jūra ir laivai, miestai, gėlės, portretai"
+   },
+   {
+    "label": "Kelionių motyvai",
+    "value": "Paryžius, Londonas, Venecija, Neapolis, Norvegija"
+   },
+   {
+    "label": "Lietuvos vietos",
+    "value": "Lėvuo, Nevėžio senvagė, Kuršių marios, Smiltynė"
+   }
   ],
   "photos": [
-   {"src": "assets/img/parodos/raseiniai-1.jpg", "alt": "Paveikslų paroda Raseinių Marcelijaus Martinaičio viešosios bibliotekos galerijoje.", "caption": "Paroda Raseinių viešosios bibliotekos paveikslų galerijoje.", "credit": "Nuotr. Prano Laurinavičiaus"},
-   {"src": "assets/img/artist/prie-molberto.jpg", "alt": "Stasys Zakas prie molberto su ką tik nutapytu paveikslu.", "caption": "Prie molberto.", "credit": ""},
-   {"src": "assets/img/artist/paveikslai-namuose.jpg", "alt": "Aliejiniai paveikslai ant sienos.", "caption": "Aliejaus darbai: Venecija, Krymas, Paryžius.", "credit": ""}
+   {
+    "src": "assets/img/parodos/raseiniai-1.jpg",
+    "alt": "Paveikslų paroda Raseinių Marcelijaus Martinaičio viešosios bibliotekos galerijoje.",
+    "caption": "Paroda Raseinių viešosios bibliotekos paveikslų galerijoje.",
+    "credit": "Nuotr. Prano Laurinavičiaus"
+   },
+   {
+    "src": "assets/img/artist/prie-molberto.jpg",
+    "alt": "Stasys Zakas prie molberto su ką tik nutapytu paveikslu.",
+    "caption": "Prie molberto.",
+    "credit": ""
+   },
+   {
+    "src": "assets/img/artist/paveikslai-namuose.jpg",
+    "alt": "Aliejiniai paveikslai ant sienos.",
+    "caption": "Aliejaus darbai: Venecija, Krymas, Paryžius.",
+    "credit": ""
+   }
   ],
-  "portrait": {"src": "assets/img/artist/portretas.jpg", "alt": "Stasys Zakas, portretas.", "credit": "Nuotr. Almutės Juzėnienės"}
+  "portrait": {
+   "src": "assets/img/artist/portretas.jpg",
+   "alt": "Stasys Zakas, portretas.",
+   "credit": "Nuotr. Almutės Juzėnienės"
+  }
  },
  "exhibitions": [
-  {"title": "Tapybos darbų paroda", "venue": "Raseinių Marcelijaus Martinaičio viešoji biblioteka, paveikslų galerija", "type": "Personalinė paroda", "year": "2025"},
-  {"title": "„Menų magija“", "venue": "Šilaičių menų festivalis", "type": "Festivalis", "year": "2026"},
-  {"title": "„Vilties paukštė“", "venue": "Tautos kankinių bažnyčia, Berčiūnai, Panevėžio r.", "type": "Sakralinės poezijos skaitymai", "year": ""}
+  {
+   "title": "Tapybos darbų paroda",
+   "venue": "Raseinių Marcelijaus Martinaičio viešoji biblioteka, paveikslų galerija",
+   "type": "Personalinė paroda",
+   "year": "2025",
+   "img": "assets/img/parodos/raseiniai-plakatas.jpg",
+   "date": "Lapkričio 14 d.",
+   "credit": ""
+  },
+  {
+   "title": "„Menų magija“",
+   "venue": "Šilaičių menų festivalis",
+   "type": "Festivalis",
+   "year": "2026",
+   "img": "",
+   "date": "Rugpjūtis",
+   "credit": ""
+  },
+  {
+   "title": "„Vilties paukštė“",
+   "venue": "Tautos kankinių bažnyčia, Berčiūnai, Panevėžio r.",
+   "type": "Sakralinės poezijos skaitymai",
+   "year": "",
+   "img": "assets/img/parodos/vilties-paukste.jpg",
+   "date": "",
+   "credit": ""
+  }
  ],
  "contacts": {
   "facebook": "https://www.facebook.com/stasys599",
